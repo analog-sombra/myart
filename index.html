@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOVE</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+
+    #img {
+      /* width: 80vw; */
+      -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000004);
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 55;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+
+      background-color: rgb(12, 45, 68);
+
+
+    }
+
+    .loadd {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(7, 1fr);
+      background-color: white;
+      padding: 20px;
+
+
+    }
+
+    .lod {
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      font-size: 40px;
+      color: #6c5ce7;
+    }
+
+    .loadd:nth-child(1) {
+
+      animation: sha 2s linear infinite;
+    }
+
+    .loadd:nth-child(2) {
+
+      animation: sha 2s linear 0.5s infinite;
+    }
+
+    .loadd:nth-child(3) {
+
+      animation: sha 2s linear 1s infinite;
+    }
+
+    .loadd:nth-child(4) {
+
+      animation: sha 2s linear 1.5s infinite;
+    }
+
+    @keyframes sha {
+      0% {
+        box-shadow: 0 0 0 0 rgb(255, 255, 255, 0.8);
+      }
+
+      100% {
+        box-shadow: 0 0 0 80px rgb(255, 255, 255, 0);
+      }
+    }
+
+    .hh {
+
+      display: none;
+    }
+  </style>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+</head>
+
+<body id="my-background">
+  <div class="hh" id="impress" data-transition-duration="2000" data-max-scale="3" data-min-scale="0"
+    data-perspective="1000" data-autoplay="6">
+  </div>
+
+
+  <div class="loader" id="loader">
+    <div class="loadd">
+      <div class="lod1 lod">L</div>
+      <div class="lod2 lod">O</div>
+      <div class="lod3 lod">A</div>
+      <div class="lod4 lod">D</div>
+      <div class="lod5 lod">I</div>
+      <div class="lod6 lod">N</div>
+      <div class="lod7 lod">G</div>
+    </div>
+    <div class="loadd">
+      <div class="lod1 lod">L</div>
+      <div class="lod2 lod">O</div>
+      <div class="lod3 lod">A</div>
+      <div class="lod4 lod">D</div>
+      <div class="lod5 lod">I</div>
+      <div class="lod6 lod">N</div>
+      <div class="lod7 lod">G</div>
+    </div>
+    <div class="loadd">
+      <div class="lod1 lod">L</div>
+      <div class="lod2 lod">O</div>
+      <div class="lod3 lod">A</div>
+      <div class="lod4 lod">D</div>
+      <div class="lod5 lod">I</div>
+      <div class="lod6 lod">N</div>
+      <div class="lod7 lod">G</div>
+    </div>
+    <div class="loadd">
+      <div class="lod1 lod">L</div>
+      <div class="lod2 lod">O</div>
+      <div class="lod3 lod">A</div>
+      <div class="lod4 lod">D</div>
+      <div class="lod5 lod">I</div>
+      <div class="lod6 lod">N</div>
+      <div class="lod7 lod">G</div>
+    </div>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.core.min.js"
+    integrity="sha512-wzeZyTAYqFv+VKD/mGwXREXBIzy4pE3E617SBskkLFuYcPQgX6px2Il3gwZwXb9DuyjYPIsbTEO/6c3+mUvoPA=="
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    console.clear();
+
+    const data = [
+      {
+        x: "0",
+        y: "0",
+        s: "./images/a1.jpg",
+      },
+      {
+        x: "0",
+        y: "5000",
+        s: "./images/a2.jpg",
+      },
+      {
+        x: "5000",
+        y: "5000",
+        s: "./images/a3.jpg",
+      },
+      {
+        x: "5000",
+        y: "10000",
+        s: "./images/a4.jpg",
+      },
+      {
+        x: "10000",
+        y: "10000",
+        s: "./images/a5.jpg",
+      },
+      {
+        x: "10000",
+        y: "5000",
+        s: "./images/a6.jpg",
+      },
+      {
+        x: "15000",
+        y: "5000",
+        s: "./images/a7.jpg",
+      },
+      {
+        x: "15000",
+        y: "-5000",
+        s: "./images/a8.jpg",
+      },
+      {
+        x: "10000",
+        y: "-5000",
+        s: "./images/a9.jpg",
+      },
+      {
+        x: "10000",
+        y: "-10000",
+        s: "./images/a10.jpg",
+      },
+      {
+        x: "20000",
+        y: "-10000",
+        s: "./images/a11.jpg",
+      },
+    ];
+
+    const main_f = document.createDocumentFragment();
+
+    function create_e(a1, a2,  i1) {
+      let ele = document.createElement("div");
+      ele.setAttribute("class", "step slide");
+      ele.setAttribute("data-x", a1);
+      ele.setAttribute("data-y", a2);
+      let r = ["0", "90", "180", "270", "360"];
+
+
+
+      let s = ["0.5", "1", "1.5", "2", "2.5", "3"];
+      ele.setAttribute(
+        "data-rotate",
+        r[Math.floor(Math.random() * r.length)]
+      );
+
+      /*
+      ele.setAttribute("data-scale", s[Math.floor(Math.random() * s.length)]);
+      
+      */
+      let imge = document.createElement("img");
+      imge.setAttribute("alt", "err");
+      imge.setAttribute("id", "img");
+      imge.setAttribute("src", i1);
+      ele.appendChild(imge);
+      main_f.appendChild(ele);
+    }
+    for (let i = 0; i < data.length; i++) {
+      create_e(data[i].x, data[i].y, data[i].s);
+    }
+
+    // document.getElementBy("hh").appendChild(main_f);
+    document.getElementsByClassName("hh")[0].appendChild(main_f);
+
+    console.clear();
+  </script>
+  <script src="https://impress.js.org/js/impress.js"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/impress.js/0.5.3/impress.js" integrity="sha512-trjTnqtVgOcNE5lmLULAVu3XG7rsPSmzpUeRonKGm+N4tOMahSYjMXbH3ICIzMiyuFOfTb0OxvPqp4PXIUb/Jw==" crossorigin="anonymous"></script>-->
+  <script>
+    impress().init();
+    console.clear();
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.birds.min.js"></script>
+  <script>
+    var sound = new Howl({
+      src: ['https://dl.dropbox.com/s/ymh4y57s21v0w8x/sach%20keh%20raha%20hai%20deewana%20%7C%20instrumental%20ringtone.mp3?dl=1'],
+      loop: true,
+      volume: 1,
+      onplay: () => {
+        document.getElementById("loader").style.opacity = "0";
+        document.getElementsByClassName("hh")[0].style.display = "block";
+
+        console.clear();
+
+      }
+    });
+    sound.play();
+    VANTA.BIRDS({
+      el: "#my-background",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
+    });
+
+    console.clear();
+  </script>
+</body>
+
+</html>
